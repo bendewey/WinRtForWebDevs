@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>MetroFlipSlides</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0.RC/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0.RC/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0.RC/js/ui.js"></script>
+
+    <!-- MetroFlipSlides references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+    <script src="/js/slideData.js"></script>
+</head>
+<body>
+
+	<div id="mainSlidesFlipView"
+        data-win-control="WinJS.UI.FlipView"
+		data-win-options="{ itemDataSource: SlideData.bindingList.dataSource }">
+	</div>
+
+    <div id="slideToolbar" data-win-control="WinJS.UI.AppBar">
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'previous',label:'Previous', icon:'previous', section:'global', tooltip:'Previous Slide'}">
+        </button>
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'next',label:'Next',icon:'next', section:'global', tooltip:'Next Slide'}">
+        </button>
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'openUri',label:'Open in IE', icon:'world',section:'selection', tooltip:'Open in IE'}">
+        </button>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x86">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x86">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>12637cd5-e331-43d2-8235-2a17a3399f7b</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).Default.props" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).props" />
+  <PropertyGroup>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetPlatformVersion>8.0</TargetPlatformVersion>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <PackageCertificateKeyFile>MetroFlipSlides_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppxManifest Include="package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Content Include="css\default.css" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\smalllogo.png" />
+    <Content Include="images\splashscreen.png" />
+    <Content Include="images\storelogo.png" />
+    <Content Include="js\default.js" />
+    <Content Include="js\slideData.js" />
+    <Content Include="default.html" />
+    <Content Include="slides\Slide1.PNG" />
+    <Content Include="slides\Slide10.PNG" />
+    <Content Include="slides\Slide11.PNG" />
+    <Content Include="slides\Slide12.PNG" />
+    <Content Include="slides\Slide13.PNG" />
+    <Content Include="slides\Slide13\camera.css" />
+    <Content Include="slides\Slide13\camera.html" />
+    <Content Include="slides\Slide13\camera.js" />
+    <Content Include="slides\Slide14.PNG" />
+    <Content Include="slides\Slide15.PNG" />
+    <Content Include="slides\Slide16.PNG" />
+    <Content Include="slides\Slide17.PNG" />
+    <Content Include="slides\Slide18.PNG" />
+    <Content Include="slides\Slide19.PNG" />
+    <Content Include="slides\Slide2.PNG" />
+    <Content Include="slides\Slide20.PNG" />
+    <Content Include="slides\Slide21.PNG" />
+    <Content Include="slides\Slide22.PNG" />
+    <Content Include="slides\Slide23.PNG" />
+    <Content Include="slides\Slide24.PNG" />
+    <Content Include="slides\Slide25.PNG" />
+    <Content Include="slides\Slide26.PNG" />
+    <Content Include="slides\Slide27.PNG" />
+    <Content Include="slides\Slide28.PNG" />
+    <Content Include="slides\Slide29.PNG" />
+    <Content Include="slides\Slide3.PNG" />
+    <Content Include="slides\Slide30.PNG" />
+    <Content Include="slides\Slide31.PNG" />
+    <Content Include="slides\Slide32.PNG" />
+    <Content Include="slides\Slide33.PNG" />
+    <Content Include="slides\Slide34.PNG" />
+    <Content Include="slides\Slide35.PNG" />
+    <Content Include="slides\Slide36.PNG" />
+    <Content Include="slides\Slide37.PNG" />
+    <Content Include="slides\Slide38.PNG" />
+    <Content Include="slides\Slide39.PNG" />
+    <Content Include="slides\Slide4.PNG" />
+    <Content Include="slides\Slide40.PNG" />
+    <Content Include="slides\Slide41.PNG" />
+    <Content Include="slides\Slide42.PNG" />
+    <Content Include="slides\Slide5.PNG" />
+    <Content Include="slides\Slide6.PNG" />
+    <Content Include="slides\Slide7.PNG" />
+    <Content Include="slides\Slide8.PNG" />
+    <Content Include="slides\Slide9.PNG" />
+    <None Include="MetroFlipSlides_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Microsoft.WinJS.1.0.RC, Version=1.0" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

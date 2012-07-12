@@ -1,0 +1,45 @@
+﻿html {
+    cursor: default;
+}
+
+#mainSlidesFlipView {
+    height: 100%;
+    width: 100%;
+}
+
+.fragment {    
+    height: 100%;
+    width: 100%;
+}
+
+.fullScreenImage {
+    height: 100%;
+    width: 100%;
+}
+
+.centered-grid-page
+{
+	display: -ms-grid;
+    -ms-grid-columns: 1fr;
+    -ms-grid-rows: 1fr;
+}
+
+.slide-button {
+	font-family:'segoe ui';
+	font-size:14pt;
+    height:60px;
+	width:250px;
+	margin-top:40%;
+    color:#AC193D;
+	background:#fff;
+	-ms-grid-column-align: center; 
+	-ms-grid-row-align: center;
+}
+
+@media screen and (-ms-view-state: snapped) {
+  
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+  
+}
