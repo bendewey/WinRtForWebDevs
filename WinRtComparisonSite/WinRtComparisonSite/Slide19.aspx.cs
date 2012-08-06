@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace WinRtComparisonSite
 {
@@ -12,6 +7,18 @@ namespace WinRtComparisonSite
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Upload_Click(object sender, EventArgs e)
+        {
+            if (UploadedFile.HasFile)
+            {
+                Session["UploadedImage"] = UploadedFile.FileBytes;
+            }
+            else
+            {
+                Session["UploadedImage"] = null;
+            }
         }
     }
 }

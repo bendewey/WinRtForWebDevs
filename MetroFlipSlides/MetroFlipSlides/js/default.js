@@ -3,32 +3,59 @@
 (function () {
     "use strict";
 
-    var app = WinJS.Application;
+    window.app = WinJS.Application;  // global 'app' variable
+    window.settings = Windows.Storage.ApplicationData.current.localSettings.values // global 'settings' variable
+    
     var activation = Windows.ApplicationModel.Activation;
     var nav = WinJS.Navigation;
     var mainFlipView;
+    var startPage = 0;
 
     WinJS.strictProcessing();
 
     app.addEventListener("activated", function (args) {
+        // for testing (slide num -1)
+        //startPage = 14;
+
+        if (args.detail.kind === activation.ActivationKind.search) {
+            startPage = 27; // Search Slide
+
+            onLaunch(args);
+        }
+
         if (args.detail.kind === activation.ActivationKind.launch) {
-            if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
-                app.sessionState.currentPage = 0;
-            }
-
-            args.setPromise(WinJS.UI.processAll().then(function () {
-
-                mainFlipView = document.getElementById("mainSlidesFlipView").winControl;
-                mainFlipView.itemTemplate = placeholderRenderer;
-
-                if (app.sessionState.currentPage) {
-                    mainFlipView.currentPage = app.sessionState.currentPage;
-                }
-
-                setupAppBar();
-            }));
+            onLaunch(args);
         }
     });
+
+    function onLaunch(args) {
+        if (args.detail.previousExecutionState === activation.ApplicationExecutionState.closedByUser) {
+            settings.currentPage = 0;
+        }
+
+        args.setPromise(WinJS.UI.processAll().then(function () {
+
+            mainFlipView = document.getElementById("mainSlidesFlipView").winControl;
+            mainFlipView.itemTemplate = placeholderRenderer;
+            mainFlipView.addEventListener("pageselected", pageSelected);
+
+            if (!startPage && settings.currentPage) {
+                startPage = settings.currentPage;
+            }
+
+            mainFlipView.currentPage = startPage;
+
+            setupAppBar();
+        }));
+    }
+
+    function pageSelected(ev) {
+        settings.currentPage = mainFlipView.currentPage;
+
+        // disable debugging when changing pages
+        settings.isDebugging = false;
+        updateDebuggingButton();
+    }
 
     function placeholderRenderer(itemPromise) {
         // create a basic template for the item which doesn't depend on the data
@@ -41,20 +68,28 @@
             // specifies a promise that will be completed when rendering is complete
             // itemPromise will complete when the data is available. 
             renderComplete: itemPromise.then(function (item) {
+
                 if (item.data.page) {
                     WinJS.UI.Pages.render(item.data.page, element, item.data);
                 } else {
-                    element.insertAdjacentHTML("afterBegin", "<img class='fullScreenImage' src='" + item.data.image + "' alt='" + item.data.title + "' />");
+                    element.insertAdjacentHTML("afterBegin", "<img class='fullscreen' src='" + item.data.image + "' alt='" + item.data.title + "' />");
                 }
             }).done()
         };
     }
 
-    // Command button functions
     function setupAppBar() {
+        document.getElementById("home").addEventListener("click", homeClicked, false);
         document.getElementById("previous").addEventListener("click", previousClicked, false);
         document.getElementById("next").addEventListener("click", nextClicked, false);
         document.getElementById("openUri").addEventListener("click", openUriClicked, false);
+        document.getElementById("toggleDebugging").addEventListener("click", toggleDebuggingClicked, false);
+
+        updateDebuggingButton();
+    }
+
+    function homeClicked(e) {
+        mainFlipView.currentPage = 0;
     }
 
     function previousClicked(e) {
@@ -65,30 +100,45 @@
         mainFlipView.next();
     }
 
+    function toggleDebuggingClicked(e) {
+        settings.isDebugging = !settings.isDebugging;
+        updateDebuggingButton();
+    }
+
+    function updateDebuggingButton() {
+        var button = document.getElementById("toggleDebugging").winControl;
+        if (settings.isDebugging) {
+            button.label = "Disable Debugging";
+        } else {
+            button.label = "Enable Debugging";
+        }
+    }
+
     function openUriClicked(e) {
+        if (settings.isDebugging) {
+            debugger;
+        }
 
-        var uri = new Windows.Foundation.Uri("http://bing.com");
+        var link = SlideData.array[mainFlipView.currentPage].link;
+        if (link) {
 
-        // Launch the URI.
-        Windows.System.Launcher.launchUriAsync(uri).done(
-            function (success) {
-                if (success) {
-                    WinJS.log && WinJS.log("URI " + uri.absoluteUri + " launched.", "sample", "status");
-                } else {
+            var uri = new Windows.Foundation.Uri(link);
 
-                    WinJS.log && WinJS.log("URI launch failed.", "sample", "error");
-                }
-            });
+            // Launch the URI.
+            Windows.System.Launcher.launchUriAsync(uri).done(
+                function (success) {
+                    if (success) {
+                        WinJS.log && WinJS.log("URI " + uri.absoluteUri + " launched.", "sample", "status");
+                    } else {
 
-
-        w3c_slidy.stop_propagation(e);
-        e.cancel = true;
-        e.returnValue = false;
-        return false;
+                        WinJS.log && WinJS.log("URI launch failed.", "sample", "error");
+                    }
+                });
+        }
     }
 
     app.oncheckpoint = function (args) {
-        app.sessionState.currentPage = mainFlipView.currentPage;
+        settings.currentPage = mainFlipView.currentPage;
     };
 
     app.start();

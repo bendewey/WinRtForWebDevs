@@ -2,6 +2,12 @@
     cursor: default;
 }
 
+body {
+    height:768px;
+    width:1024px;
+    
+}
+
 #mainSlidesFlipView {
     height: 100%;
     width: 100%;
@@ -12,7 +18,7 @@
     width: 100%;
 }
 
-.fullScreenImage {
+.fullscreen {
     height: 100%;
     width: 100%;
 }
@@ -24,16 +30,37 @@
     -ms-grid-rows: 1fr;
 }
 
+.bulleted-content {
+	margin-left:120px;
+    margin-top:145px;
+}
+
+.centered-content {
+	margin-top:40%;
+    -ms-grid-column-align: center; 
+	-ms-grid-row-align: center;
+}
+
 .slide-button {
 	font-family:'segoe ui';
 	font-size:14pt;
-    height:60px;
+    min-height:60px;
 	width:250px;
-	margin-top:40%;
-    color:#AC193D;
+	background: rgba(255, 255, 255, 0.8);
+    margin:4px;
+    padding:11px;
+}
+
+.slide-button:HOVER {
 	background:#fff;
-	-ms-grid-column-align: center; 
-	-ms-grid-row-align: center;
+	color:black;
+}
+
+.list-thumbnail {
+    margin-top:8px;
+    margin-right:8px;
+    height:80px;
+    width:80px;
 }
 
 @media screen and (-ms-view-state: snapped) {

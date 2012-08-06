@@ -1,0 +1,22 @@
+﻿html {
+    overflow:hidden;
+}
+
+body {
+    margin:0px;
+    padding:0px;
+    color:#fff;
+}
+
+.bulleted-content {
+    position:absolute; 
+    left:120px;
+    top:145px;
+}
+
+.list-thumbnail {
+    margin-top:8px;
+    margin-right:8px;
+    height:80px;
+    width:80px;
+}

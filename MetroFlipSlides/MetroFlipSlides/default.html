@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024, height=768" />
     <title>MetroFlipSlides</title>
 
     <!-- WinJS references -->
@@ -15,18 +16,21 @@
     <script src="/js/slideData.js"></script>
 </head>
 <body>
-
 	<div id="mainSlidesFlipView"
         data-win-control="WinJS.UI.FlipView"
 		data-win-options="{ itemDataSource: SlideData.bindingList.dataSource }">
 	</div>
 
     <div id="slideToolbar" data-win-control="WinJS.UI.AppBar">
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'home',label:'Home',icon:'home', section:'global', tooltip:'Home'}">
+        </button>
         <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'previous',label:'Previous', icon:'previous', section:'global', tooltip:'Previous Slide'}">
         </button>
         <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'next',label:'Next',icon:'next', section:'global', tooltip:'Next Slide'}">
         </button>
         <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'openUri',label:'Open in IE', icon:'world',section:'selection', tooltip:'Open in IE'}">
+        </button>
+        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'toggleDebugging',label:'Enable Debugging', icon:'url(images/bug.png)',section:'selection'}">
         </button>
     </div>
 

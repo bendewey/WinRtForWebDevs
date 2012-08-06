@@ -15,17 +15,27 @@
   </Resources>
   <Applications>
     <Application Id="App" StartPage="default.html">
-      <VisualElements DisplayName="MetroFlipSlides" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="MetroFlipSlides" ForegroundText="light" BackgroundColor="#464646">
+      <VisualElements DisplayName="MetroFlipSlides" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="MetroFlipSlides" ForegroundText="light" BackgroundColor="#BB2B34">
         <DefaultTile ShowName="allLogos" />
         <SplashScreen Image="images\splashscreen.png" />
+        <InitialRotationPreference>
+          <Rotation Preference="portrait" />
+          <Rotation Preference="landscape" />
+          <Rotation Preference="portraitFlipped" />
+          <Rotation Preference="landscapeFlipped" />
+        </InitialRotationPreference>
       </VisualElements>
       <Extensions>
         <Extension Category="windows.search" />
       </Extensions>
+      <ApplicationContentUriRules>
+        <Rule Match="http://www.w3.org/" Type="include" />
+      </ApplicationContentUriRules>
     </Application>
   </Applications>
   <Capabilities>
     <Capability Name="internetClient" />
     <DeviceCapability Name="webcam" />
+    <DeviceCapability Name="location" />
   </Capabilities>
 </Package>

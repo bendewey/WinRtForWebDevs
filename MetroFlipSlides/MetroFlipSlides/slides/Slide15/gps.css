@@ -1,0 +1,16 @@
+﻿.slide-button {
+    color:#AC193D;
+}
+
+#topButtonContainer {
+	height:60px;
+	text-align:center;
+}
+
+#mapdiv 
+{
+    width:100%; 
+    height:85%; 
+    position:absolute;
+    top: 80px;
+}

@@ -51,8 +51,10 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <Content Include="css\default.css" />
+    <Content Include="images\bug.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\smalllogo.png" />
+    <Content Include="images\spacer.png" />
     <Content Include="images\splashscreen.png" />
     <Content Include="images\storelogo.png" />
     <Content Include="js\default.js" />
@@ -62,10 +64,63 @@
     <Content Include="slides\Slide10.PNG" />
     <Content Include="slides\Slide11.PNG" />
     <Content Include="slides\Slide12.PNG" />
+    <Content Include="slides\Slide17\accelerometer.css" />
+    <Content Include="slides\Slide17\accelerometer.html" />
+    <Content Include="slides\Slide17\accelerometer.js" />
+    <Content Include="slides\Slide15\gps.css" />
+    <Content Include="slides\Slide15\gps.html" />
+    <Content Include="slides\Slide15\gps.js" />
+    <Content Include="slides\Slide17\wheel.png" />
+    <Content Include="slides\Slide23\folderPicker.css" />
+    <Content Include="slides\Slide23\folderPicker.html" />
+    <Content Include="slides\Slide23\folderPicker.js" />
+    <Content Include="slides\Slide23\sailing4.jpg" />
+    <Content Include="slides\Slide23\sailing1.jpg" />
+    <Content Include="slides\Slide22\fileSavePicker.css" />
+    <Content Include="slides\Slide22\fileSavePicker.html" />
+    <Content Include="slides\Slide22\fileSavePicker.js" />
+    <Content Include="slides\Slide20\fileOpenPicker.css" />
+    <Content Include="slides\Slide20\fileOpenPicker.html" />
+    <Content Include="slides\Slide20\fileOpenPicker.js" />
+    <Content Include="slides\Slide22\sailing.jpg" />
+    <Content Include="slides\Slide23\sailing2.jpg" />
+    <Content Include="slides\Slide23\sailing3.jpg" />
+    <Content Include="slides\Slide36\win-hybrid.css" />
+    <Content Include="slides\Slide36\win-hybrid.html" />
+    <Content Include="slides\Slide36\win-hybrid.js" />
+    <Content Include="slides\Slide35\html-hybrid.css" />
+    <Content Include="slides\Slide35\html-hybrid.html" />
+    <Content Include="slides\Slide35\html-hybrid.js" />
+    <Content Include="slides\Slide34\sailing4.jpg" />
+    <Content Include="slides\Slide34\settings-flyout.html" />
+    <Content Include="slides\Slide34\settings.css" />
+    <Content Include="slides\Slide34\settings.html" />
+    <Content Include="slides\Slide34\settings.js" />
+    <Content Include="slides\Slide32\sailing4.jpg" />
+    <Content Include="slides\Slide32\tiles.css" />
+    <Content Include="slides\Slide32\tiles.html" />
+    <Content Include="slides\Slide32\tiles.js" />
+    <Content Include="slides\Slide31\sailing4.jpg" />
+    <Content Include="slides\Slide31\shareBitmap.css" />
+    <Content Include="slides\Slide31\shareBitmap.html" />
+    <Content Include="slides\Slide31\shareBitmap.js" />
+    <Content Include="slides\Slide30\shareUri.css" />
+    <Content Include="slides\Slide30\shareUri.html" />
+    <Content Include="slides\Slide30\shareUri.js" />
+    <Content Include="slides\Slide29\sailing1.jpg" />
+    <Content Include="slides\Slide29\sailing2.jpg" />
+    <Content Include="slides\Slide29\sailing3.jpg" />
+    <Content Include="slides\Slide29\sailing4.jpg" />
+    <Content Include="slides\Slide29\search.css" />
+    <Content Include="slides\Slide29\search.html" />
+    <Content Include="slides\Slide29\search.js" />
+    <Content Include="slides\Slide24\contactPicker.css" />
+    <Content Include="slides\Slide24\contactPicker.html" />
+    <Content Include="slides\Slide24\contactPicker.js" />
     <Content Include="slides\Slide13.PNG" />
-    <Content Include="slides\Slide13\camera.css" />
-    <Content Include="slides\Slide13\camera.html" />
-    <Content Include="slides\Slide13\camera.js" />
+    <Content Include="slides\Slide14\camera.css" />
+    <Content Include="slides\Slide14\camera.html" />
+    <Content Include="slides\Slide14\camera.js" />
     <Content Include="slides\Slide14.PNG" />
     <Content Include="slides\Slide15.PNG" />
     <Content Include="slides\Slide16.PNG" />
@@ -106,7 +161,12 @@
     <None Include="MetroFlipSlides_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <SDKReference Include="Bing.Maps.JavaScript, Version=1.0" />
     <SDKReference Include="Microsoft.WinJS.1.0.RC, Version=1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MetroCPlusPlusComponent\MetroCPlusPlusComponent.vcxproj" />
+    <ProjectReference Include="..\MetroCSharpComponent\MetroCSharpComponent.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
