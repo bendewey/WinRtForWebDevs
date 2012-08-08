@@ -43,7 +43,7 @@
                 startPage = settings.currentPage;
             }
 
-            mainFlipView.currentPage = startPage;
+            setCurrentPage(startPage);
 
             setupAppBar();
         }));
@@ -78,6 +78,16 @@
         };
     }
 
+    function setCurrentPage(page) {
+        // Workaround for an odd issues with the flipView notification was hangs.  I'm just clearing the notification prior to navigating home.
+        if (mainFlipView._pageManager && mainFlipView._pageManager._notificationsEndedSignal) {
+            mainFlipView._pageManager._notificationsEndedSignal = null;
+        }
+
+        // navigate to the first page
+        mainFlipView.currentPage = page;
+    }
+
     function setupAppBar() {
         document.getElementById("home").addEventListener("click", homeClicked, false);
         document.getElementById("previous").addEventListener("click", previousClicked, false);
@@ -89,7 +99,7 @@
     }
 
     function homeClicked(e) {
-        mainFlipView.currentPage = 0;
+        setCurrentPage(0);
     }
 
     function previousClicked(e) {

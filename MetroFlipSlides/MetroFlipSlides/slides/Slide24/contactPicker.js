@@ -7,7 +7,7 @@
         // populates the page elements with the app's data.
         ready: function (element, options) {
             
-            output = document.getElementById("folder-output");
+            output = document.getElementById("contact-output");
 
             document.getElementById("pickContacts").addEventListener("click", pickContactsClicked, false);
 

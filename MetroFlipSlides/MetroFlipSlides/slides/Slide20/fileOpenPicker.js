@@ -28,7 +28,7 @@
         picker.fileTypeFilter.replaceAll(["*"]);
 
         // Open the picker for the user to select a file
-        picker.pickSingleFileAsync().done(processResult, displayError);
+        picker.pickSingleFileAsync().then(processResult, displayError);
     }
 
     function pickFilesClicked(e) {
@@ -43,11 +43,10 @@
         picker.fileTypeFilter.replaceAll(["*"]);
 
         // Open the picker for the user to select a file
-        picker.pickMultipleFilesAsync().done(processResults, displayError);
+        picker.pickMultipleFilesAsync().then(processResults, displayError);
     }
 
     function processResult(file) {
-
         // Check that the picker returned a file. 
         // The picker returns null if the user clicked Cancel.
         output.innerHTML = "";
@@ -72,6 +71,10 @@
 
     function addFile(file) {
         file.getThumbnailAsync(Windows.Storage.FileProperties.ThumbnailMode.listView).done(function (thumbnail) {
+            if (settings.isDebugging) {
+                debugger;
+            }
+
             var imageBlob = URL.createObjectURL(thumbnail);
 
             var fileElement = document.createElement("div");

@@ -17,10 +17,6 @@
     });
 
     function searchClicked(e) {
-        if (settings.isDebugging) {
-            debugger;
-        }
-
         searchPane.show();
     }
 
@@ -49,13 +45,9 @@
 
         fileElement.appendChild(imgElement);
         fileElement.appendChild(nameElement);
-        document.getElementById("output").appendChild(fileElement);
+        document.getElementById("search-output").appendChild(fileElement);
 
         return packageLocation.getFileAsync(filename).then(function (file) {
-
-            if (settings.isDebugging) {
-                debugger;
-            }
 
             nameElement.innerHTML = file.name;
 
@@ -71,10 +63,10 @@
     }
 
     function displayError(error) {
-        document.getElementById("output").innerText = error;
+        document.getElementById("search-output").innerText = error;
     }
 
     function clearResults() {
-        document.getElementById("output").innerText = "";
+        document.getElementById("search-output").innerText = "";
     }
 })();

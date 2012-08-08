@@ -35,7 +35,7 @@
             try {
                 accelerometer = Windows.Devices.Sensors.Accelerometer.getDefault();
                 if (!accelerometer) {
-                    window.console.log("failed to get accelerometer");
+                    WinJS.log("failed to get accelerometer");
                 }
             } catch (e) {
                 WinJS.log && WinJS.log(e);
@@ -49,6 +49,7 @@
         try {
             getAccelerometer();
             if (!accelerometer) {
+                startSimulation();
                 return;
             }
 
@@ -59,8 +60,11 @@
     }
 
     function removeAccelerometerListener() {
-        // Un-Register for Accelerometer change event because that scenario is no longer active
+        // Un-Register for Accelerometer change event
         try {
+            rotationAngle = 0;
+            updateArrowForRotation();
+
             getAccelerometer();
             if (!accelerometer) {
                 return;
@@ -70,6 +74,16 @@
         } catch (e) {
             WinJS.log && WinJS.log(e);
         }
+    }
+
+    function startSimulation() {
+        [10, 20, 30, 40, 30, 20, 10, 0, -10, -20, -30, -40]
+            .forEach(function (rotation, index) {
+                setTimeout(function () {
+                    rotationAngle = rotation;
+                    updateArrowForRotation();
+                }, index * 100);
+            });
     }
 
     function calculateDeviceRotationScenario(eventArgs) {

@@ -36,24 +36,30 @@
         }
 
         if (folder) {
-        
-            // async
-            writePackageFileToFolder("slides\\Slide23\\sailing1.jpg", "sailing1.jpg", folder);
-            writePackageFileToFolder("slides\\Slide23\\sailing2.jpg", "sailing2.jpg", folder);
-            writePackageFileToFolder("slides\\Slide23\\sailing3.jpg", "sailing3.jpg", folder);
-            writePackageFileToFolder("slides\\Slide23\\sailing4.jpg", "sailing4.jpg", folder);
+            output.innerText = "Saving files...";
 
-            //todo: add Promise.ThenAll() or eqivilant
+            var savingPromises = [];
 
-            output.innerText = "4 Files were saved to " + folder.displayName;
+            // parallel async
+            savingPromises.push(writePackageFileToFolder("slides\\Slide23\\sailing1.jpg", "sailing1.jpg", folder));
+            savingPromises.push(writePackageFileToFolder("slides\\Slide23\\sailing2.jpg", "sailing2.jpg", folder));
+            savingPromises.push(writePackageFileToFolder("slides\\Slide23\\sailing3.jpg", "sailing3.jpg", folder));
+            savingPromises.push(writePackageFileToFolder("slides\\Slide23\\sailing4.jpg", "sailing4.jpg", folder));
+
+            WinJS.Promise.join(savingPromises).then(function () {
+                output.innerText = "4 Files were saved to " + folder.displayName;
+            });
+
         } else {
             displayError("An image wasn't selected.");
         }
     }
 
     function writePackageFileToFolder(packageFilePath, filename, outputFolder) {
+        // get input stream from package contents
         return packageLocation.getFileAsync(packageFilePath).then(function (packageFile) {
             return packageFile.openReadAsync().then(function (packageStream) {
+                // output stream
                 return outputFolder.createFileAsync(filename, Windows.Storage.CreationCollisionOption.replaceExisting).then(function (outputFile) {
                     return outputFile.openAsync(Windows.Storage.FileAccessMode.readWrite).then(function (outputStream) {
                         return Windows.Storage.Streams.RandomAccessStream.copyAsync(packageStream, outputStream).then(function () {
@@ -70,7 +76,7 @@
     }
 
     function displayError(error) {
-        document.getElementById("output").innerText = error;
+        output.innerText = error;
     }
 
 

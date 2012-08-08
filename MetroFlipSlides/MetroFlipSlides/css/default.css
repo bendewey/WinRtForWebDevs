@@ -5,7 +5,7 @@
 body {
     height:768px;
     width:1024px;
-    
+    /*margin-left:171px;*/ /* use to center on 1366 resolution */
 }
 
 #mainSlidesFlipView {

@@ -36,16 +36,26 @@
             debugger;
         }
 
+        var progress = document.getElementById("locatingProgress");
+        progress.style.display = "block";
+
         var geolocator = new Windows.Devices.Geolocation.Geolocator();
         geolocator.getGeopositionAsync().then(function (e) {
 
             var pushpin = new Microsoft.Maps.Pushpin(e.coordinate, null);
             map.entities.push(pushpin);
 
-            map.setView({ center: e.coordinate, mapTypeId: Microsoft.Maps.MapTypeId.auto, zoom: 15 });
+            map.setView({
+                center: e.coordinate,
+                mapTypeId: Microsoft.Maps.MapTypeId.auto,
+                zoom: 15
+            });
+
+            progress.style.display = "none";
 
         }, function (error) {
             WinJS.log && WinJS.log(error);
+            progress.style.display = "none";
         });
     }
 

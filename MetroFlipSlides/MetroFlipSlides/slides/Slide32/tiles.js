@@ -16,7 +16,9 @@
         }
 
         // get a XML DOM version of a specific template by using getTemplateContent
-        var tileXml = Windows.UI.Notifications.TileUpdateManager.getTemplateContent(Windows.UI.Notifications.TileTemplateType.tileSquarePeekImageAndText01);
+        var templateTypes = Windows.UI.Notifications.TileTemplateType;
+        var tileXml = Windows.UI.Notifications.TileUpdateManager
+            .getTemplateContent(templateTypes.tileSquarePeekImageAndText01);
 
         // You will need to look at the template documentation to know how many text fields a particular template has
         // get the text attributes for this template and fill them in

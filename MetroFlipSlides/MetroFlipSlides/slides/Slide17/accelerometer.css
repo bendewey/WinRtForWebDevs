@@ -3,6 +3,7 @@
     margin-top:10%;
 	-ms-grid-column-align:center;
 	-ms-grid-row-align:center;
+    transform:rotate(0deg);
 }
 
 #wheelImage {

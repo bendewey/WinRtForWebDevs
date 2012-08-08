@@ -38,29 +38,23 @@
 
         if (file) {
         
-            // Prevent updates to the remote version of the file until we finish making changes and call CompleteUpdatesAsync.
-            Windows.Storage.CachedFileManager.deferUpdates(file);
-
-            writePackageFileTo("slides\\Slide22\\sailing.jpg", file).done(function () {
-                // Let Windows know that we're finished changing the file so the other app can update the remote version of the file.
-                // Completing updates may require Windows to ask for user input.
-                Windows.Storage.CachedFileManager.completeUpdatesAsync(file).done(function (updateStatus) {
-                    if (updateStatus === Windows.Storage.Provider.FileUpdateStatus.complete) {
-                        output.innerText = "File " + file.name + " was saved.";
-                    } else {
-                        output.innerText = "File " + file.name + " couldn't be saved.";
-                    }
+            writePackageFileTo("slides\\Slide22\\sailing.jpg", file)
+                .then(function () {
+                    output.innerText = "File " + file.name + " was saved.";
+                },function () {
+                    output.innerText = "File " + file.name + " couldn't be saved."; 
                 });
-            });
         } else {
             displayError("An image wasn't selected.");
         }
     }
 
     function writePackageFileTo(packageFilePath, outputFile) {
+        // get input stream from package contents
         return packageLocation.getFileAsync(packageFilePath).then(function (packageFile) {
            return packageFile.openReadAsync().then(function (packageStream) {
-                return outputFile.openAsync(Windows.Storage.FileAccessMode.readWrite).then(function (outputStream) {
+               // output stream
+               return outputFile.openAsync(Windows.Storage.FileAccessMode.readWrite).then(function (outputStream) {
                     return Windows.Storage.Streams.RandomAccessStream.copyAsync(packageStream, outputStream).then(function () {
                         // Copy the stream from the blob to the File stream
                         return outputStream.flushAsync().then(function () {
@@ -76,6 +70,5 @@
     function displayError(error) {
         output.innerText = error;
     }
-
 
 })();

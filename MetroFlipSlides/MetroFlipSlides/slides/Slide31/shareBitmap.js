@@ -33,10 +33,6 @@
     }
 
     function shareClicked(e) {
-        if (settings.isDebugging) {
-            debugger;
-        }
-
         Windows.ApplicationModel.DataTransfer.DataTransferManager.showShareUI();
     }
 
@@ -49,10 +45,13 @@
     }
 
     function dataRequested(e) {
+        if (settings.isDebugging) {
+            debugger;
+        }
+
         e.request.data.properties.title = "Sample Sharing Image";
         e.request.data.properties.description = "Sharing Sailing Image";
 
-        
         var streamReference = Windows.Storage.Streams.RandomAccessStreamReference.createFromFile(imageFile);
         e.request.data.properties.thumbnail = streamReference;
         

@@ -21,26 +21,26 @@
         }
 
         // Using Windows.Media.Capture.CameraCaptureUI API to capture a photo
-        var dialog = new Windows.Media.Capture.CameraCaptureUI();
-        var aspectRatio = { width: 1, height: 1 };
+        var cameraUi = new Windows.Media.Capture.CameraCaptureUI();
 
-        dialog.photoSettings.croppedAspectRatio = aspectRatio;
-        dialog.captureFileAsync(Windows.Media.Capture.CameraCaptureUIMode.photo).done(function (file) {
+        var captureModes = Windows.Media.Capture.CameraCaptureUIMode;
 
-            if (file) {
+        cameraUi.captureFileAsync(captureModes.photo)
+            .then(function (file) {
+                if (file) {
 
-                var photoBlobUrl = URL.createObjectURL(file);
-                var capturedPhoto = document.createElement("img");
-                capturedPhoto.src = photoBlobUrl;
-                output.innerHTML = "";
-                output.appendChild(capturedPhoto);
+                    var photoBlobUrl = URL.createObjectURL(file);
+                    var capturedPhoto = document.createElement("img");
+                    capturedPhoto.src = photoBlobUrl;
+                    output.innerHTML = "";
+                    output.appendChild(capturedPhoto);
                 
-            } else {
-                output.innerText = "No photo captured.";
-            }
-        }, function (err) {
-            output.innerText = err
-        });
+                } else {
+                    output.innerText = "No photo captured.";
+                }
+            }, function (err) {
+                output.innerText = err
+            });
 
     }
 })();
