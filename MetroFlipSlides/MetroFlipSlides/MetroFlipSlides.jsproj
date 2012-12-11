@@ -160,7 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="Bing.Maps.JavaScript, Version=1.0" />
-    <SDKReference Include="Microsoft.WinJS.1.0.RC, Version=1.0" />
+    <SDKReference Include="Microsoft.WinJS.1.0, Version=1.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MetroCPlusPlusComponent\MetroCPlusPlusComponent.vcxproj" />
