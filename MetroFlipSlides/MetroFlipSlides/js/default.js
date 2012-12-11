@@ -10,7 +10,7 @@
     var nav = WinJS.Navigation;
     var mainFlipView;
     var startPage = 0;
-
+    
     WinJS.strictProcessing();
 
     app.addEventListener("activated", function (args) {
@@ -19,6 +19,7 @@
 
         if (args.detail.kind === activation.ActivationKind.search) {
             startPage = 27; // Search Slide
+            window.searchText = args.detail.queryText;
 
             onLaunch(args);
         }

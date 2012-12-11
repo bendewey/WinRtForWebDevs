@@ -4,6 +4,7 @@
     var searchPane = Windows.ApplicationModel.Search.SearchPane.getForCurrentView();
     var packageLocation = Windows.ApplicationModel.Package.current.installedLocation;
     var sailingResults = ["slides\\Slide29\\sailing1.jpg", "slides\\Slide29\\sailing2.jpg", "slides\\Slide29\\sailing3.jpg", "slides\\Slide29\\sailing4.jpg"];
+    var searchOutput;
 
     WinJS.UI.Pages.define("/slides/Slide29/search.html", {
         // This function is called whenever a user navigates to this page. It
@@ -12,7 +13,13 @@
             
             searchPane.addEventListener("querysubmitted", querySubmitted);
 
-            document.getElementById("search").addEventListener("click", searchClicked, false);
+            element.querySelector("#search").addEventListener("click", searchClicked, false);
+            searchOutput = element.querySelector("#search-output");
+
+            if (window.searchText) {
+                querySubmitted({ queryText: window.searchText });
+                window.searchText = undefined;
+            }
         }
     });
 
@@ -45,7 +52,7 @@
 
         fileElement.appendChild(imgElement);
         fileElement.appendChild(nameElement);
-        document.getElementById("search-output").appendChild(fileElement);
+        searchOutput.appendChild(fileElement);
 
         return packageLocation.getFileAsync(filename).then(function (file) {
 
@@ -63,10 +70,10 @@
     }
 
     function displayError(error) {
-        document.getElementById("search-output").innerText = error;
+        searchOutput.innerText = error;
     }
 
     function clearResults() {
-        document.getElementById("search-output").innerText = "";
+        searchOutput.innerText = "";
     }
 })();
