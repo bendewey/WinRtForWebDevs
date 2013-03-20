@@ -20,6 +20,6 @@
             WinJS.UI.SettingsFlyout.populateSettings(e);
         };
         
-        WinJS.UI.SettingsFlyout.showSettings("help", "/slides/slide34/settings-flyout.html");
+        //WinJS.UI.SettingsFlyout.showSettings("help", "/slides/slide34/settings-flyout.html");
     }
 })();

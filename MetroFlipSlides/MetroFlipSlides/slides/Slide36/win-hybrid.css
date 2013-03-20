@@ -6,3 +6,18 @@
     -ms-grid-column-align:center;
     -ms-grid-row-align:center;
 }
+
+.hybrid-slide-button {
+	color:#F08002;
+	background-color:rgba(255,255,255,0.8);	
+    font-family:'segoe ui';
+	font-size:14pt;
+    min-height:60px;
+	width:250px;
+    margin:4px;
+    padding:11px;
+}
+
+.hybrid-slide-button:HOVER {
+	background-color:#fff;	
+}

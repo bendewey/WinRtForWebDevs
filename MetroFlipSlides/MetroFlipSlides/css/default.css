@@ -16,6 +16,7 @@ body {
 .fragment {    
     height: 100%;
     width: 100%;
+    color: #000;
 }
 
 .fullscreen {
@@ -42,18 +43,18 @@ body {
 }
 
 .slide-button {
-	font-family:'segoe ui';
+	background: rgba(0, 91, 148, 0.8);
+    font-family:'segoe ui';
 	font-size:14pt;
     min-height:60px;
 	width:250px;
-	background: rgba(255, 255, 255, 0.8);
     margin:4px;
     padding:11px;
 }
 
 .slide-button:HOVER {
-	background:#fff;
-	color:black;
+	background:rgba(0, 91, 148, 1);
+	color:white;
 }
 
 .list-thumbnail {

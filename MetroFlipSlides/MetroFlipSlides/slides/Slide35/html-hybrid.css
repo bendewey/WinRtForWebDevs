@@ -1,8 +1,8 @@
-﻿.centered-frame {
-    margin-top:5%;
-    height:600px;
+﻿.html-centered-frame {
+    margin-top:20%;
+    height:550px;
     width:800px;
-    background-color:white;
+    background-color: #f00;
     -ms-grid-column-align:center;
     -ms-grid-row-align:center;
 }

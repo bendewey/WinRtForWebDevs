@@ -32,6 +32,7 @@
         var tileNotification = new Windows.UI.Notifications.TileNotification(tileXml);
 
         // send the notification to the app's application tile
-        Windows.UI.Notifications.TileUpdateManager.createTileUpdaterForApplication().update(tileNotification);
+        var primaryTileUpdater = Windows.UI.Notifications.TileUpdateManager.createTileUpdaterForApplication();
+        primaryTileUpdater.update(tileNotification);
     }
 })();

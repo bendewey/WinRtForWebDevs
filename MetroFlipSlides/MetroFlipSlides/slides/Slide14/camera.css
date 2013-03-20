@@ -1,3 +1,14 @@
-﻿.slide-button {
+﻿.camera-slide-button {
     color:#AC193D;
+	background-color:rgba(255,255,255,0.8);
+    font-family:'segoe ui';
+	font-size:14pt;
+    min-height:60px;
+	width:250px;
+    margin:4px;
+    padding:11px;
+}
+
+.camera-slide-button:HOVER {
+	background-color:#fff;
 }
