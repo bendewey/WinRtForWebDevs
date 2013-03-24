@@ -18,7 +18,7 @@
         //startPage = 14;
 
         if (args.detail.kind === activation.ActivationKind.search) {
-            startPage = 27; // Search Slide
+            startPage = 22; // Search Slide
             window.searchText = args.detail.queryText;
 
             onLaunch(args);
