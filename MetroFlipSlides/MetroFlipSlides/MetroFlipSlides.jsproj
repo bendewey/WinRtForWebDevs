@@ -159,7 +159,7 @@
     <None Include="MetroFlipSlides_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <SDKReference Include="Bing.Maps.JavaScript, Version=1.0" />
+    <SDKReference Include="Bing.Maps.JavaScript, Version=1.113.0601.2" />
     <SDKReference Include="Microsoft.WinJS.1.0, Version=1.0" />
   </ItemGroup>
   <ItemGroup>
